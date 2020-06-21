@@ -101,6 +101,12 @@ namespace Builder
 
             var playstation5 = new CodeBuilder("Sony")
                 .AddField("IsDigitalEdition", "bool")
+                .AddField("ModelNumber", "int")
+                .AddField("ModelNumber", "int")
+                .AddField("ModelNumber", "int")
+                .AddField("ModelNumber", "int")
+                .AddField("ModelNumber", "int")
+                .AddField("ModelNumber", "int")
                 .AddField("ModelNumber", "int");
 
             Console.WriteLine(playstation5);
