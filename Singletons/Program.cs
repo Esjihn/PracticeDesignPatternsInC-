@@ -2,11 +2,14 @@
 
 namespace Singletons
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        // Singletons
+
+        // change to Main to run. 
+        public static void none(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
