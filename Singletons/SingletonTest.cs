@@ -2,61 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using NUnit.Framework;
 
 namespace Singletons
 {
     public class Person
     {
         public string Name { get; set; }
+
+        public Person(string name)
+        {
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+        }
     }
 
-    public sealed class PersonBuilder
-    {
-        private readonly List<Func<Person, Person>> actions
-        = new List<Func<Person, Person>>();
-
-        public static PersonBuilder Called(string name)
-        {
-            return Do(p => p.Name = name);
-        }
-
-        public PersonBuilder Do(Action<Person> action)
-        {
-            return AddAction(action);
-        }
-
-        public Person Build()
-        {
-            return actions.Aggregate(new Person(), (p, f) => f(p));
-        }
-
-        private PersonBuilder AddAction(Action<Person> action)
-        {
-            actions.Add(p =>
-            {
-                action(p);
-                return p;
-            });
-
-            return this;
-        }
-
-    }
     public class SingletonTest
     {
 
-
-
-
         public static bool IsSingleton(Func<object> func)
         {
-
             // todo
+
         }
 
         // change to Main to run.
         public static void Main(string[] args)
         {
+            
+            // pb.actions or static PersonBuilder.actions
             if (IsSingleton())
             {
                 Console.WriteLine("Yes, this is a singleton");
