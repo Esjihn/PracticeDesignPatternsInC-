@@ -2,7 +2,9 @@
 
 namespace Adapters
 {
-    // Adapters
+    // Structural
+    // Adapters - 
+    // Getting the interface you want from the interface you have.
 
     public class Program
     {

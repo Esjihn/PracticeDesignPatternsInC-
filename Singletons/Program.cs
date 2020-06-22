@@ -4,6 +4,7 @@ namespace Singletons
 {
     public class Program
     {
+        // Creational
         // Singletons - A component which is only instantiated once. 
         // (A design pattern everyone loves to hate.. but is it really that bad?)
         // "When discussing which patterns to drop, we found that we still love them all.

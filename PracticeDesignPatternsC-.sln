@@ -15,7 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prototypes", "Prototypes\Pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Singletons", "Singletons\Singletons.csproj", "{31358F2F-17E7-4D4E-AE17-54519FFA7779}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapters", "Adapters\Adapters.csproj", "{0C76C513-2072-4D56-93C4-6E8EFF0C5312}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adapters", "Adapters\Adapters.csproj", "{0C76C513-2072-4D56-93C4-6E8EFF0C5312}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Creational", "Creational", "{7C067EC7-5A2B-42EA-8530-4C6678832B9B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Structural", "Structural", "{AAA8188B-6BE6-4CDA-8ED5-3D7D68513187}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Behavioral", "Behavioral", "{7EDD9C63-5D53-4102-9136-EE6308D654F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +60,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E1B431C2-F6C2-4169-A0A9-9F52421846E9} = {7C067EC7-5A2B-42EA-8530-4C6678832B9B}
+		{EA226B3C-A966-4966-9D69-C0F5B4DF8B58} = {7C067EC7-5A2B-42EA-8530-4C6678832B9B}
+		{5CBAA772-4546-4431-911D-2B5FACF6A2B3} = {7C067EC7-5A2B-42EA-8530-4C6678832B9B}
+		{31358F2F-17E7-4D4E-AE17-54519FFA7779} = {7C067EC7-5A2B-42EA-8530-4C6678832B9B}
+		{0C76C513-2072-4D56-93C4-6E8EFF0C5312} = {7EDD9C63-5D53-4102-9136-EE6308D654F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E4B28AB8-ED5D-4F23-9D96-E8BFB22038CB}

@@ -2,6 +2,7 @@
 
 namespace Builder
 {
+    // Creational
     // Builder - When piecewise object construction is complicated provide
     // an API for doing it succinctly (clearly and briefly expressed)
     // TODO
