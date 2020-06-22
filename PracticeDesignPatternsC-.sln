@@ -5,13 +5,15 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PracticeDesignPatternsC-", "PracticeDesignPatternsC-\PracticeDesignPatternsC-.csproj", "{2DF37D75-C2BF-42B7-80F4-054D44E2A9A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder", "Builder\Builder.csproj", "{E1B431C2-F6C2-4169-A0A9-9F52421846E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Builder", "Builder\Builder.csproj", "{E1B431C2-F6C2-4169-A0A9-9F52421846E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID", "SOLID\SOLID.csproj", "{B731C816-2E8F-4456-A9FD-F6C6DE93CB92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOLID", "SOLID\SOLID.csproj", "{B731C816-2E8F-4456-A9FD-F6C6DE93CB92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factories", "FactoriesMain\Factories.csproj", "{EA226B3C-A966-4966-9D69-C0F5B4DF8B58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factories", "FactoriesMain\Factories.csproj", "{EA226B3C-A966-4966-9D69-C0F5B4DF8B58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototypes", "Prototypes\Prototypes.csproj", "{5CBAA772-4546-4431-911D-2B5FACF6A2B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prototypes", "Prototypes\Prototypes.csproj", "{5CBAA772-4546-4431-911D-2B5FACF6A2B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singletons", "Singletons\Singletons.csproj", "{31358F2F-17E7-4D4E-AE17-54519FFA7779}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{5CBAA772-4546-4431-911D-2B5FACF6A2B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CBAA772-4546-4431-911D-2B5FACF6A2B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CBAA772-4546-4431-911D-2B5FACF6A2B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31358F2F-17E7-4D4E-AE17-54519FFA7779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31358F2F-17E7-4D4E-AE17-54519FFA7779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31358F2F-17E7-4D4E-AE17-54519FFA7779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31358F2F-17E7-4D4E-AE17-54519FFA7779}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

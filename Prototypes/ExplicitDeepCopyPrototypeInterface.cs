@@ -31,7 +31,7 @@ namespace Prototypes
         }
     }
 
-    public class Address3
+    public class Address3 : IPrototype2<Address3>
     {
         private string streetName;
         public int houseNumber;
