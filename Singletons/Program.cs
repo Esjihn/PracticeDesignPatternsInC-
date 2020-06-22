@@ -20,6 +20,16 @@ namespace Singletons
         // 4) Want to prevent anyone (clients) from creating additional copies.
         // 5) Need to take care of lazy (call-by-need) instantiation and thread safety.
 
+        // Summary
+        // 1) Making a 'safe' singleton is easy:
+        //    construct a static Lazy<T> and return its (Lazy<T>.) Value.
+        // 2) Singletons are difficult to test.
+        // 3) !!!Instead follow the dependency inversion principle. Instead of directly
+        //    using a singleton, consider depending on an abstraction (i.e. an interface)!!!
+        // 4) Consider defining singleton lifetime in DI container.
+        // If using dependency injection pervasively it is not a big deal to call constructor to
+        // instantiate singleton. 
+
         // change to Main to run. 
         public static void none(string[] args)
         {
