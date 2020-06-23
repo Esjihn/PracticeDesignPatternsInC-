@@ -18,7 +18,7 @@ namespace Decorators
     public class Program
     {
         // change to Main to run.
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
             
         }
