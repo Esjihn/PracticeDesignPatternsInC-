@@ -56,7 +56,7 @@ namespace Composites
     public class CompositeNeuralNetworks
     {
         // change to Main to run
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
             var neuron1 = new Neuron();
             var neuron2 = new Neuron();
