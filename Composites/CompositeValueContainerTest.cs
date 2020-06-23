@@ -8,27 +8,27 @@ namespace Composites
 {
     public interface IValueContainer
     {
-        IEnumerable<int> Value { get; set; }
+        IEnumerable<int> Values { get; set; }
     }
 
     public class SingleValue : IValueContainer
     {
-        public SingleValue(IEnumerable<int> value)
+        public SingleValue(int value)
         {
-            Value = value;
+            this.Values = new int[] {value};
         }
-        
-        public IEnumerable<int> Value { get; set; }
+
+        public IEnumerable<int> Values { get; set; }
     }
 
     public class ManyValues : List<int>, IValueContainer
     {
         public ManyValues(List<int> values)
         {
-            this.Value = values;
+            this.Values = values;
         }
 
-        public IEnumerable<int> Value { get; set; }
+        public IEnumerable<int> Values { get; set; }
     }
 
     public static class ExtensionMethods2
@@ -38,10 +38,11 @@ namespace Composites
             int result = 0;
             foreach (IValueContainer ivc in containers)
             {
-                foreach (int i in ivc.Value)
+                foreach (int i in ivc.Values)
                 {
                     result +=  i;
                 }
+
             }
 
             return result;
@@ -53,24 +54,19 @@ namespace Composites
         // change to Main to run.
         public static void Main(string[] args)
         {
-            List<int> intList = new List<int>
-            {
-                1,2,3,4,5,6,7
-            };
-
             List<int> intList2 = new List<int>
             {
-                1,2,3,4,5,6,7
+                1,2,3,4,5,6,7 // Sum this..
             };
 
             List<IValueContainer> list = new List<IValueContainer>();
-            IValueContainer sv = new SingleValue(intList2);
-            IValueContainer mv = new ManyValues(intList);
-            list.Add(sv);
+            IValueContainer sv = new SingleValue(1); // ..plus this.
+            IValueContainer mv = new ManyValues(intList2);
+
             list.Add(mv);
+            list.Add(sv);
 
-            Console.WriteLine(list.Sum());
-
+            Console.WriteLine(list.Sum()); // 1 + 1 + 2 + 3 + 4 + 5 + 6 + 7 = 29
         }
     }
 }
