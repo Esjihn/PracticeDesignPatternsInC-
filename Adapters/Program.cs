@@ -15,6 +15,14 @@ namespace Adapters
     // 3) Thus, we use a special device (an adapter) to give us the interface 
     // we require from the interface we have.
 
+    // Summary
+    // Implementing an Adapter is easy
+    // 1) Determine the API you have and the API you need.
+    // 2) Create a component which (typically) aggregates (has reference to, ...)
+    // the adaptee.
+    // 3) Intermediate representations can pile up: use caching and other optimizations.
+    // and clean up data when its no longer required.
+
     public class Program
     {
 
