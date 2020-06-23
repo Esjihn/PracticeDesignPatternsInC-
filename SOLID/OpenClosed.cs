@@ -45,7 +45,7 @@ namespace SOLID
         }
 
         // boss says filter by color
-        public IEnumerable<Product> FilterBySize(IEnumerable<Product> products, Color color)
+        public IEnumerable<Product> FilterByColor(IEnumerable<Product> products, Color color)
         {
             foreach (var p in products)
             {
@@ -58,7 +58,7 @@ namespace SOLID
         // should be open to extension closed for modification. We are modifying the ProductFilter 
         // class every time we need to add a method to add new filter functionality.
         // for instance a specific version of Product filter is already shipped to the customer
-        public IEnumerable<Product> FilterBySize(IEnumerable<Product> products, Size size, Color color)
+        public IEnumerable<Product> FilterBySizeAndColor(IEnumerable<Product> products, Size size, Color color)
         {
             foreach (var p in products)
             {
@@ -161,7 +161,7 @@ namespace SOLID
             Product[] products = {apple, tree, house};
             var pf = new ProductFilter();
             Console.WriteLine("Green products (old):");
-            foreach (Product p in pf.FilterBySize(products, Color.Green))
+            foreach (Product p in pf.FilterByColor(products, Color.Green))
             {
                 Console.WriteLine($" - {p.Name} is green");
             }

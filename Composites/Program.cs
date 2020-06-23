@@ -16,6 +16,12 @@ namespace Composites
     //      b) i.e. Foo and Collection<Foo> have common API's which you can call on one or the other
     //      with out knowing whether you are working with single object or collection.
 
+    // Summary
+    // 1) Objects can use other objects via inheritance/composition (latter in this case).
+    // 2) Some composed and singular objects need similar/identical behaviors.
+    // 3) Composite design pattern lets us treat both types of objects uniformly (in the same manner).
+    // 4) C# has special support for the enumeration concept.
+    // 5) A single object can masquerade as a collection with yield return this.
 
     public class Program
     {
