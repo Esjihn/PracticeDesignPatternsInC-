@@ -140,7 +140,7 @@ namespace Decorators
     public class StaticDecoratorCompositions
     {
         // change to Main to run.
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
             var redSquare = new ColoredShape<Square2>();
             Console.WriteLine(redSquare.AsString());
