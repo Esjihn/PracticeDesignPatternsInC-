@@ -40,7 +40,7 @@ namespace Decorators
     public class DecoratorDependencyInjection
     {
         // change to Main to run.
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
             var b = new ContainerBuilder();
             // b.RegisterType<ReportingServiceWithLogging>().As<IReportingService>(); // will inject into infinity
