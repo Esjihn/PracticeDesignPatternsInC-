@@ -160,7 +160,7 @@ namespace Composites
     public class CompositeSpecification
     {
         // change to Main to run
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
             var apple = new Product("Apple", Color.Green, Size.Small);
             var tree = new Product("Tree", Color.Green, Size.Large);
