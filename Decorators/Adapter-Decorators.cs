@@ -499,12 +499,12 @@ namespace Decorators
         }
 
         public int MaxCapacity => builder.MaxCapacity;
-}
+    }      
 
-public class Adapter_Decorators
+    public class Adapter_Decorators
     {
         // change to Main to run.
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
             // Implicit conversion and += adapter plus MyStringBuilder decorator
             MyStringBuilder s = "hello ";
