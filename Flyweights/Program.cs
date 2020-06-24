@@ -19,6 +19,9 @@ namespace Flyweights
     //      b) Don't want each character to have a formatting character.
     //      c) Operate on ranges (e.g., line number, start/end positions)
 
+    // Summary
+    //
+
     public class Program
     {
         // change to Main to run.
