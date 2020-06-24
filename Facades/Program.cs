@@ -19,7 +19,9 @@ namespace Facades
     //                      but Console.Write, WriteLine, Read, ReadLine are simple and easy to use.  
 
     // Summary
-    // 
+    // 1) Build a facade to provide a simplified API over a set of classes (or subsystem)
+    // 2) May with to (optionally) expose internals through the facade. (Power users) (chunk of high and low level apis)
+    // 3) May allow users to 'escalate' to use more complex APIs if they need to.
 
     public class Program
     {
