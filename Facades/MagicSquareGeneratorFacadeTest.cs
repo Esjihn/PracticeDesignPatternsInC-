@@ -78,20 +78,47 @@ namespace Facades
         }
     }
 
+    /// <summary>
+    /// A magic square is a square matrix whos rows, columns, and diaglonals add up to the same value.
+    /// </summary>
     public class MagicSquareGenerator
     {
+        readonly Generator _generator = new Generator();
+        readonly Splitter _splitter = new Splitter();
+        readonly Verifier _verifier = new Verifier();
+
         public List<List<int>> Generate(int size)
         {
-            // todo
+            List<List<int>> resultSet = new List<List<int>>();
+            List<int> result = new List<int>();
+
+            while (size > 0)
+            {
+                result = _generator.Generate(size);
+                size--;
+            }
+            
+            resultSet.Add(result);
+            _splitter.Split(resultSet);
+            _verifier.Verify(resultSet);
+
+            return resultSet;
         }
     }
 
     public class MagicSquareGeneratorFacadeTest
     {
         // change to Main to run.
-        public static void none(string[] args)
+        public static void Main(string[] args)
         {
-            
+            MagicSquareGenerator msg = new MagicSquareGenerator();
+            foreach (List<int> itemList in msg.Generate(1))
+            {
+                foreach (int i in itemList)
+                {
+                    Console.Write(i + " ");
+                }
+            }
         }
     }
 }

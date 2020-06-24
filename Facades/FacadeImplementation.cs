@@ -98,7 +98,7 @@ namespace Facades
     public class FacadeImplementation
     {
         // change to Main to run.
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
             EngineFacade ef = new EngineFacade();
             ef.BuildEngine();
