@@ -7,7 +7,7 @@ namespace Decorators
 {
     // Cant always use inheritance sometimes the object is sealed. i.e. StringBuilder.
     // public class CodeBuilder : StringBuilder <- doesn't work. 
-    // limitations (probably due to security) can be managed by using Decorator pattern in this matter. 
+    // limitations (probably due to security) can be managed by using Decorator pattern in this matter 
     public class CodeBuilder
     {
         private StringBuilder builder = new StringBuilder();
