@@ -60,7 +60,7 @@ namespace Proxies
 
         public override string ToString()
         {
-            return $"{_value * 100}%";
+            return $"{Math.Round(_value * 100)}%";
         }
     }
 
