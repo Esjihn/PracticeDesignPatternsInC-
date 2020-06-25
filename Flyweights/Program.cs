@@ -2,7 +2,7 @@
 
 namespace Flyweights
 {
-    // Flyweight - A space optimization technique that lest us use less memory by storing
+    // Flyweight - A space optimization technique that lets us use less memory by storing
     // externally the data associated with similar objects.
     // Space (memory) optimization!
 
@@ -21,7 +21,7 @@ namespace Flyweights
 
     // Summary
     // 1) Store common data externally. Minimize data storage needed. 
-    // 2) Define the idea of 'ranges' on homogeneous collections and
+    // 2) Define the idea of 'ranges' on homogeneous (same kind/alike) collections and
     // store data related to those ranges.
     // 3) .NET string interning is the Flyweight pattern. 
     //      b) String Interning is a method of storing only one copy of each
