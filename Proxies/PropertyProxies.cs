@@ -89,7 +89,7 @@ namespace Proxies
     public class PropertyProxies
     {
         // change to Main to run.
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
             var c = new Creature();
                             // public Property<int> Agility { get; set; }
