@@ -20,7 +20,12 @@ namespace Flyweights
     //      c) Operate on ranges (e.g., line number, start/end positions)
 
     // Summary
-    //
+    // 1) Store common data externally. Minimize data storage needed. 
+    // 2) Define the idea of 'ranges' on homogeneous collections and
+    // store data related to those ranges.
+    // 3) .NET string interning is the Flyweight pattern. 
+    //      b) String Interning is a method of storing only one copy of each
+    //         distinct String Value, which must be immutable.
 
     public class Program
     {
