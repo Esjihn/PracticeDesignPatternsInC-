@@ -9,7 +9,7 @@ namespace Proxies
     public class CompositeProxySoA_AoS
     {
         // change to Main to run.
-        public static void none(string[] args)
+        public static void Main(string[] args)
         {
             
         }
