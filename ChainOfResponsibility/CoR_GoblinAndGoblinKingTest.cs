@@ -7,40 +7,28 @@ namespace ChainOfResponsibility
 {
     public class Goblin
     {
-        public int Attack { get; set; }
-        public int Defense { get; set; }
+        public virtual int Attack { get; set; }
+        public virtual int Defense { get; set; }
     }
 
     public class GoblinKing : Goblin
     {
-        public int Attack { get; set; }
-        public int Defense { get; set; }
+        public override int Attack { get; set; }
+        public override int Defense { get; set; }
     }
 
     public class Game2
     {
         public class Creatures
         {
-            // terrible Idea need to accept both a type of goblin or Goblin king in a single
-            // add and remove method. 
-            public static void Add(Goblin goblin)
+            
+            public static Goblin Add(Goblin goblin)
             {
-                throw new NotImplementedException();
-            }
 
-            public static void Add(GoblinKing goblin)
-            {
-                throw new NotImplementedException();
             }
 
             public static void Remove(Goblin goblin)
             {
-                throw new NotImplementedException();
-            }
-
-            public static void Remove(GoblinKing goblin)
-            {
-                throw new NotImplementedException();
             }
         }
     }
@@ -62,7 +50,8 @@ namespace ChainOfResponsibility
         // change to Main to run.
         public static void Main(string[] args)
         {
-            
+            Goblin goblin = Game2.Creatures.Add(new Goblin());
+            Goblin goblinKing = Game2.Creatures.Add(new GoblinKing());
         }
     }
 
