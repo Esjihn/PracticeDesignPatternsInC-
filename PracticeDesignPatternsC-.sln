@@ -33,7 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facades", "Facades\Facades.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flyweights", "Flyweights\Flyweights.csproj", "{45A844DF-86D1-4A8B-8A6C-A36D7F1D3CF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proxies", "Proxies\Proxies.csproj", "{246BA0F8-F4B9-4D98-929B-08FF06649905}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proxies", "Proxies\Proxies.csproj", "{246BA0F8-F4B9-4D98-929B-08FF06649905}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfResponsibility", "ChainOfResponsibility\ChainOfResponsibility.csproj", "{9EE1E867-76F1-4906-B4F1-7116BAB2BADE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{246BA0F8-F4B9-4D98-929B-08FF06649905}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{246BA0F8-F4B9-4D98-929B-08FF06649905}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{246BA0F8-F4B9-4D98-929B-08FF06649905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EE1E867-76F1-4906-B4F1-7116BAB2BADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EE1E867-76F1-4906-B4F1-7116BAB2BADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EE1E867-76F1-4906-B4F1-7116BAB2BADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EE1E867-76F1-4906-B4F1-7116BAB2BADE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,6 +115,7 @@ Global
 		{C6F0A83F-77A5-44AF-ABCC-3FB506B066EC} = {AAA8188B-6BE6-4CDA-8ED5-3D7D68513187}
 		{45A844DF-86D1-4A8B-8A6C-A36D7F1D3CF0} = {AAA8188B-6BE6-4CDA-8ED5-3D7D68513187}
 		{246BA0F8-F4B9-4D98-929B-08FF06649905} = {AAA8188B-6BE6-4CDA-8ED5-3D7D68513187}
+		{9EE1E867-76F1-4906-B4F1-7116BAB2BADE} = {AAA8188B-6BE6-4CDA-8ED5-3D7D68513187}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E4B28AB8-ED5D-4F23-9D96-E8BFB22038CB}

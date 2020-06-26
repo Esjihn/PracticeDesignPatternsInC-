@@ -32,6 +32,16 @@ namespace Proxies
     // Decorator has a reference and will typically implement delegated members and then add NEW methods and NEW
     // fields to augment existing behavior.
     
+    // Summary
+    // 1) A proxy has the same interface as the underlying object.
+    // 2) To create a proxy, simply replicate the existing interface of an object
+    // 3) Add relevant functionality to the redefined member functions.
+    //      b) so instead of blindly forwarding every single invocation of the delegated members like the 
+    //         decorator pattern. In proxy we just add relevant functionality.
+    // 4) Different proxies (communication, logging, caching, etc.) have completely different behaviors.
+    // 5) Proxy design pattern is actual a root or core process of a wide variety of proxies for the functionality
+    //    that you actually need. 
+
     public class Program
     {
         // change to Main to run. 

@@ -111,7 +111,7 @@ namespace Proxies
     public class DynamicProxyForLogging
     {
         // change to Main to run. 
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
             var ba = Log<BankAccount>.As<IBankAccount>();
             ba.Deposit(100);
