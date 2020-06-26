@@ -139,10 +139,10 @@ namespace ChainOfResponsibility
     public class CoR_BrokerChain
     {
         // change to Main to run.
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
             var game = new Game();
-            // real world would use constuctor injection from your DI container
+            // real world would use constructor injection from your DI container
             var goblin = new Creature2(game, "Strong Goblin", 3, 3);
             Console.WriteLine(goblin);
 
