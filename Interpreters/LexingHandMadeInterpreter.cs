@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Commands
+namespace Interpreters
 {
+    
 
-
-    public class CommandPattern
+    public class LexingHandMadeInterpreter
     {
         // change to Main to run.
         public static void Main(string[] args)

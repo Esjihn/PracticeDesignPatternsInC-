@@ -17,7 +17,12 @@ namespace Commands
     // 3) Uses: GUI commands, multi-level undo/redo, macro recording and more!
 
     // Summary
-
+    // 1) Encapsulate all details of an operation in a separate object
+    //    (convenient to serialize, store to memory or disk, easier to work with, and undo etc)
+    // 2) Define instruction for applying the command (either in the command itself, or elsewhere)
+    // 3) Optionally define instructions for undoing the command.
+    // 4) Can create composite commands (aka macros) 
+    
     public class Program
     {
         // change to Main to run.
