@@ -30,6 +30,12 @@ namespace ChainOfResponsibility
     // 2) Query = asking for information (i.e. please give me your attack value) without changing anything.
     // 3) CQS = having separate means of sending commands and queries to direct field access.
 
+    // Summary
+    // 1) Chain of Responsibility can be implemented as a chain of references (linkedlist)
+    //      or a centralized construct (event handler broker + query)
+    // 2) Enlist objects in the chain possibly controlling their order priority)
+    // 3) Object removal from chain (i.e. Dispose() and using statements)
+
     public class Program
     {
         // change to Main to run. 
