@@ -5,33 +5,35 @@ using NUnit.Framework;
 
 namespace ChainOfResponsibility
 {
-    public class Goblin
+    public abstract class Creature3
     {
-        public virtual int Attack { get; set; }
-        public virtual int Defense { get; set; }
+        public int Attack { get; set; }
+        public int Defense { get; set; }
+    }
+
+    public class Goblin : Creature3
+    {
+
+        public Goblin(Game3 game) { }
     }
 
     public class GoblinKing : Goblin
     {
-        public override int Attack { get; set; }
-        public override int Defense { get; set; }
-    }
-
-    public class Game2
-    {
-        public class Creatures
+        public GoblinKing(Game3 game) : base(game)
         {
-            
-            public static Goblin Add(Goblin goblin)
-            {
-
-            }
-
-            public static void Remove(Goblin goblin)
-            {
-            }
         }
     }
+
+    public class Game3
+    {
+        public IList<Creature3> Creatures;
+
+        public Game3()
+        {
+            Creatures = new List<Creature3>();
+        }
+    }
+
 
     /// <summary>
     /// You are given a game scenario with classes Goblin and GoblinKing. Please implement the following rules.
@@ -50,8 +52,9 @@ namespace ChainOfResponsibility
         // change to Main to run.
         public static void Main(string[] args)
         {
-            Goblin goblin = Game2.Creatures.Add(new Goblin());
-            Goblin goblinKing = Game2.Creatures.Add(new GoblinKing());
+            Game3 game = new Game3();
+            Goblin goblin = new Goblin(game);
+            game.Creatures.Add(goblin);
         }
     }
 
