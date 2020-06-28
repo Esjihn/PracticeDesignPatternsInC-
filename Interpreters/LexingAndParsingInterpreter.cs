@@ -170,7 +170,7 @@ namespace Interpreters
         }
 
         // change to Main to run.
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
             // separate tokens ( 13 + 4 ) - ( 12 etc.. // i(minus) part makes it a binary operation.
             string input = "(13+4)-(12+1)";
