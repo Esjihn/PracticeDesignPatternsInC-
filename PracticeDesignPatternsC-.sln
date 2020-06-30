@@ -39,7 +39,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChainOfResponsibility", "Ch
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commands", "Commands\Commands.csproj", "{D6DE07EE-E0AA-4A7C-8E2E-31E11AF58778}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interpreters", "Interpreters\Interpreters.csproj", "{A11FC114-6D81-44BD-8CE9-0A29084F5A1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interpreters", "Interpreters\Interpreters.csproj", "{A11FC114-6D81-44BD-8CE9-0A29084F5A1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iterators", "Iterators\Iterators.csproj", "{CD53F974-2F16-4269-A8ED-673B25D7D926}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,10 @@ Global
 		{A11FC114-6D81-44BD-8CE9-0A29084F5A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A11FC114-6D81-44BD-8CE9-0A29084F5A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A11FC114-6D81-44BD-8CE9-0A29084F5A1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD53F974-2F16-4269-A8ED-673B25D7D926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD53F974-2F16-4269-A8ED-673B25D7D926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD53F974-2F16-4269-A8ED-673B25D7D926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD53F974-2F16-4269-A8ED-673B25D7D926}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +136,7 @@ Global
 		{9EE1E867-76F1-4906-B4F1-7116BAB2BADE} = {7EDD9C63-5D53-4102-9136-EE6308D654F5}
 		{D6DE07EE-E0AA-4A7C-8E2E-31E11AF58778} = {7EDD9C63-5D53-4102-9136-EE6308D654F5}
 		{A11FC114-6D81-44BD-8CE9-0A29084F5A1E} = {7EDD9C63-5D53-4102-9136-EE6308D654F5}
+		{CD53F974-2F16-4269-A8ED-673B25D7D926} = {7EDD9C63-5D53-4102-9136-EE6308D654F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E4B28AB8-ED5D-4F23-9D96-E8BFB22038CB}
