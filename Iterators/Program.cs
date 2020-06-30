@@ -14,6 +14,12 @@ namespace Iterators
     //      b) .NET then builds a state machine around your yield return statements. (happens automatically)
 
     // Summary
+    // 1) An iterator specified how you can traverse an object (in-order, post-order, pre-order
+    // 2) An iterator object, unlike a method, cannot be recursive. (state machine) 
+    // 3) Generally, an IEnumerable<T> returning method is enough. (method for each traversal mechanisms)
+    // 4) Iteration works through duck typing -- you need a GetEnumerator() that yields a type that has
+    //    Current and MoveNext();
+    // 5) .NET framework will allow the use of said iterator as part of a foreach statement.
 
     public class Program
     {
