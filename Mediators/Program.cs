@@ -20,7 +20,12 @@ namespace Mediators
     // 3) Solution: have them all refer to some central component that facilitates communication
     
     // Summary
-
+    // 1) Create the mediator and have each object in the system refer to it
+    //      b) i.e. in a field (or implemented as a singleton)
+    // 2) Mediator engages in bidirectional communication with its connected components
+    // 3) Mediator has functions the **components** can call
+    // 4) Components have functions the **mediator** can call
+    // 5) Event processing (i.e. Reactive extensions) libraries make communication easier to implement
 
     public class Program
     {
