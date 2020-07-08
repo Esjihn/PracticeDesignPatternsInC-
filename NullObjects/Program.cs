@@ -17,6 +17,14 @@ namespace NullObjects
     // 3) Thus, we build a no-op, non-functioning inheritor of B and pass it to A
 
     // Summary
+    // 1) Implement the required interface
+    // 2) Rewrite the methods with empty bodies
+    //      b) If method is non-void, return default(T)
+    //      c) If these values are ever used, you are in trouble;
+    // 3) Supply an instance of Null Object in place of actual object
+    // 4) Dynamic construction possible
+    //      b) With associated performance implications
+
     public class Program
     {
 
