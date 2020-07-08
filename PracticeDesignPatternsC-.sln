@@ -45,7 +45,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iterators", "Iterators\Iter
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mediators", "Mediators\Mediators.csproj", "{F8F2316A-86A2-4C64-8B16-A70AC107AB8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mementos", "Mementos\Mementos.csproj", "{74C887AA-CC59-40CC-B77E-92939CF0F99E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mementos", "Mementos\Mementos.csproj", "{74C887AA-CC59-40CC-B77E-92939CF0F99E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NullObjects", "NullObjects\NullObjects.csproj", "{0A9794A9-E79B-4F94-B2EF-2F10DEBD3F19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +131,10 @@ Global
 		{74C887AA-CC59-40CC-B77E-92939CF0F99E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74C887AA-CC59-40CC-B77E-92939CF0F99E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74C887AA-CC59-40CC-B77E-92939CF0F99E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A9794A9-E79B-4F94-B2EF-2F10DEBD3F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A9794A9-E79B-4F94-B2EF-2F10DEBD3F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A9794A9-E79B-4F94-B2EF-2F10DEBD3F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A9794A9-E79B-4F94-B2EF-2F10DEBD3F19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -151,6 +157,7 @@ Global
 		{CD53F974-2F16-4269-A8ED-673B25D7D926} = {7EDD9C63-5D53-4102-9136-EE6308D654F5}
 		{F8F2316A-86A2-4C64-8B16-A70AC107AB8C} = {7EDD9C63-5D53-4102-9136-EE6308D654F5}
 		{74C887AA-CC59-40CC-B77E-92939CF0F99E} = {7EDD9C63-5D53-4102-9136-EE6308D654F5}
+		{0A9794A9-E79B-4F94-B2EF-2F10DEBD3F19} = {7EDD9C63-5D53-4102-9136-EE6308D654F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E4B28AB8-ED5D-4F23-9D96-E8BFB22038CB}
