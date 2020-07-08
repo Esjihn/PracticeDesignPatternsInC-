@@ -48,7 +48,7 @@ namespace Mementos
     public class Mementos
     {
         // change to Main to run.
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
             // cannot roll back to initial state in base "vanilla" memento.
 
