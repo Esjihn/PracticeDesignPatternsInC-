@@ -59,7 +59,7 @@ namespace Observers
     public class ObserversViaSpecialInterfaces : IObserver<Event>
     {
         // change to Main to run.
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
             // Rx: Special interfaces Originated with Reactive
             // Extensions and now available in .NET
