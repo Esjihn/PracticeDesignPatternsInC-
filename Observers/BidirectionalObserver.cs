@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Observers.Annotations;
@@ -69,35 +71,92 @@ namespace Observers
         }
     }
 
+    // Custom Bidirectional Binding class
+    public sealed class BidirectionalBinding : IDisposable
+    {
+        private bool _disposed;
+
+        // first second
+        // firstProperty, secondProperty
+
+        public BidirectionalBinding(INotifyPropertyChanged first,
+            Expression<Func<object>> firstProperty, // () => x.Foo
+            INotifyPropertyChanged second, 
+            Expression<Func<object>> secondProperty)
+        {
+            // xxxProperty is MemberExpression x.Foo
+            // Member ↑↑↑ PropertyInfo (involves expression trees via MemberExpression
+            if (firstProperty.Body is MemberExpression firstExpr
+            && secondProperty.Body is MemberExpression secondExpr)
+            {
+                if (firstExpr.Member is PropertyInfo firstProp
+                    && secondExpr.Member is PropertyInfo secondProp)
+                {
+                    first.PropertyChanged += (sender, args) =>
+                    {
+                        if (!_disposed)
+                        {
+                            secondProp.SetValue(second,
+                                firstProp.GetValue(first));
+                        }
+                    };
+                    second.PropertyChanged += (sender, args) =>
+                    {
+                        if (!_disposed)
+                        {
+                            firstProp.SetValue(first,
+                                secondProp.GetValue(second));
+                        }
+                    };
+                }
+
+
+            }
+        }
+
+        public void Dispose()
+        {
+            _disposed = true;
+        }
+    }
+
     public class BidirectionalObserver
     {
         // change to Main to run.
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
-            // bidirectional binding
             var product = new Product{Name = "Book"};
             var window = new Window2{ProductName = "Book"};
 
 
-            product.PropertyChanged += (sender, eventArgs) =>
-            {
-                if (eventArgs.PropertyName == "Name")
-                {
-                    Console.WriteLine("Name changes in product");
-                    window.ProductName = product.Name;
-                }
-            };
+            //product.PropertyChanged += (sender, eventArgs) =>
+            //{
+            //    if (eventArgs.PropertyName == "Name")
+            //    {
+            //        Console.WriteLine("Name changes in product");
+            //        window.ProductName = product.Name;
+            //    }
+            //};
 
-            window.PropertyChanged += (sender, eventArgs) =>
-            {
-                if (eventArgs.PropertyName == "ProductName")
-                {
-                    Console.WriteLine("Name changes in Window");
-                    product.Name = window.ProductName;
-                }
-            };
+            //window.PropertyChanged += (sender, eventArgs) =>
+            //{
+            //    if (eventArgs.PropertyName == "ProductName")
+            //    {
+            //        Console.WriteLine("Name changes in Window");
+            //        product.Name = window.ProductName;
+            //    }
+            //};
+
+            // Expression trees () =>
+            using var binding = new BidirectionalBinding(
+                product,
+                () => product.Name,
+                window,
+                () => window.ProductName);
 
             product.Name = "Smart Book";
+            window.ProductName = "Really smart book";
+
             Console.WriteLine(product);
             Console.WriteLine(window);
         }
