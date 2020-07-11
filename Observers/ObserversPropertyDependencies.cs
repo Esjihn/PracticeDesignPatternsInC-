@@ -1,83 +1,113 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Observers.Annotations;
 
 namespace Observers
 {
-    public class PropertyNotificationSupport : INotifyPropertyChanged
+    public class PropertyNotificationSupport
     {
-        // CanVote → Age, Citizenship
-        private readonly Dictionary<string, HashSet<string>> affectedBy =
-            new Dictionary<string, HashSet<string>>();
+        private readonly Dictionary<string, HashSet<string>> _affectedBy
+            = new Dictionary<string, HashSet<string>>();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected virtual void OnPropertyChanged
+            ([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-            foreach (string affected in affectedBy.Keys)
-            {
-                if (affectedBy[affected].Contains(propertyName))
-                {
-                    // Another problem if there are circular dependencies
+            foreach (var affected in _affectedBy.Keys)
+                if (_affectedBy[affected].Contains(propertyName))
                     OnPropertyChanged(affected);
+        }
+
+        protected Func<T> property<T>(string name, Expression<Func<T>> expr)
+        {
+            Console.WriteLine($"Creating computed property for expression {expr}");
+
+            var visitor = new MemberAccessVisitor(GetType());
+            visitor.Visit(expr);
+
+            if (visitor.PropertyNames.Any())
+            {
+                if (!_affectedBy.ContainsKey(name))
+                    _affectedBy.Add(name, new HashSet<string>());
+
+                foreach (var propName in visitor.PropertyNames)
+                    if (propName != name)
+                        _affectedBy[name].Add(propName);
+            }
+
+            return expr.Compile();
+        }
+    }
+
+    public class MemberAccessVisitor : ExpressionVisitor
+    {
+        private readonly Type _declaringType;
+        public readonly IList<string> PropertyNames = new List<string>();
+
+
+        public MemberAccessVisitor(Type declaringType)
+        {
+            this._declaringType = declaringType;
+        }
+
+        public override Expression Visit(Expression expr)
+        {
+            if (expr != null && expr.NodeType == ExpressionType.MemberAccess)
+            {
+                var memberExpr = (MemberExpression) expr;
+                if (memberExpr.Member.DeclaringType == _declaringType)
+                {
+                    PropertyNames.Add(memberExpr.Member.Name);
                 }
             }
+
+            return base.Visit(expr);
         }
     }
 
     // works only if a base class is available. 
     public class Person3 : PropertyNotificationSupport
     {
-        private bool _canVote;
-        private int _age;
+        private int age;
 
         public int Age
         {
-            get => _age;
+            get => age;
             set
             {
-                // 4 → 5
-                // false → false
-                // var oldCanVote = CanVote;
-
-                if (value == _age) return;
-                _age = value;
+                if (value == age) return;
+                age = value;
                 OnPropertyChanged();
-                OnPropertyChanged(nameof(CanVote));
-
             }
         }
 
-        public bool CanVote
+        public bool Citizen
         {
-            get
-            {
-                if (Age >= 16) 
-                {
-                    return _canVote = true;
-                }
-
-                return _canVote;
-            }
+            get => citizen;
             set
             {
-                _canVote = value;
+                if (value == citizen) return;
+                citizen = value;
+                OnPropertyChanged();
             }
         }
 
+        private readonly Func<bool> canVote;
+        private bool citizen;
+        public bool CanVote => canVote();
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public Person3()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            canVote = property(nameof(CanVote), () => Citizen && Age >= 16);
         }
     }
 
@@ -85,9 +115,15 @@ namespace Observers
     public class ObserversPropertyDependencies
     {
         // change to Main to run.
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
-            
+            var p = new Person3();
+            p.PropertyChanged += (sender, eventArgs) =>
+            {
+                Console.WriteLine($"{eventArgs.PropertyName} changed.");
+            };
+            p.Age = 15;
+            p.Citizen = true;
         }
     }
 }
