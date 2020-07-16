@@ -37,7 +37,6 @@ namespace Observers
             }
         }
 
-
         private class Subscription : IDisposable
         {
             private readonly Person2 _person;
