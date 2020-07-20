@@ -22,16 +22,16 @@ namespace Proxies
     //      b) Other types: logging, virtual, guarding (check access control to fields and methods)
 
     // Proxy vs. Decorator
-    // P) provides an identical interface
-    // D) provides an enhanced interface
+    // P) provides an identical interface (to the derived type through implementing delegating members)
+    // D) provides an enhanced interface (to the derived type through implementing delegating members)
     // D) typically aggregates (or has reference to) what it is decorating
     // P) proxy does not need a reference necessarily and might not even be working with a materialized object 
-    // for example it could be working with a "Lazy" interface over the whole type.
+    // for example it could be working with a "Lazy" interface over the whole derived type.
     // layman's: Proxy is typically a decorator with modifications within the delegated members with or without a 
     // direct reference.
     // Decorator has a reference and will typically implement delegated members and then add NEW methods and NEW
     // fields to augment existing behavior.
-    
+
     // Summary
     // 1) A proxy has the same interface as the underlying object.
     // 2) To create a proxy, simply replicate the existing interface of an object

@@ -7,6 +7,9 @@ namespace Observers
     // The entity generating the events is an observable. 
     // Built-in right into C#/.NET, right?
 
+    // Gang of Four: Define one-to-many dependency between objects so that when one
+    // object changes state, all its dependents are notified and updated automatically
+
     // Motivation
     // 1) We need to be informed (notified) when certain things happen in our system.
     //      b) Object's property changes
