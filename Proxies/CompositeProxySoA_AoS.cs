@@ -64,6 +64,7 @@ namespace Proxies
         }
     }
 
+    // Array of Structures or Structures of Array paradox
     public class CompositeProxySoA_AoS
     {
         // change to Main to run.
