@@ -61,7 +61,6 @@ namespace Observers
             Console.WriteLine($"{this}: {this.GetHashCode()} is now {this.Attack}");
         }
 
-
         public void Dispose()
         {
             this._game.RatAttackEvent -= GameOnRatAttackEvent;
@@ -75,17 +74,16 @@ namespace Observers
         {
             var game = new Game();
            
-            var rat = new Rat(game); // rat = 1
-            game.OnRatAttackEvent();
-            rat.Dispose(); // rat goes away
-            var rat2 = new Rat(game); // rat 2 = 1
+            var rat1 = new Rat(game); 
+            game.OnRatAttackEvent(); // rat.Attack = 1
+            rat1.Dispose(); // rat1 goes away
+            var rat2 = new Rat(game); // rat2.Attack = 1
             game.OnRatAttackEvent(); // rat 2 not disposed (does not go away)
-            var rat3 = new Rat(game); // rat 2's attack is now ++ 1 + 1 = 2
-            game.OnRatAttackEvent(); // rat 3 and rat 2 in pot so both Rat2 and Rat 3 attack = 2 (1 + 1)
+            var rat3 = new Rat(game); // rat2.Attack is now (++) 1 + 1 = 2
+            game.OnRatAttackEvent(); // rat 3 and rat 2 in pot so both Rat2.Attack and Rat3.Attack
+                                     // = 2 (1 + 1)
             rat3.Dispose(); // rat 3 goes away but rat 2 remains which means only one rat in pot
 
-            
-            // Everything has been unsubscribed at this point. 
             game.OnRatAttackEvent(); // Since only 1 rat (rat 2) remains. Then rat2 attack is reduced
                                      // back to 1.
         }
