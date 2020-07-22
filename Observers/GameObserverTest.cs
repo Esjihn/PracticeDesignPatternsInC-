@@ -29,12 +29,10 @@ namespace Observers
 
         public int RatSubscriberCount()
         {
-            if(RatAttackEvent != null)
-                return RatAttackEvent.GetInvocationList().Length;
-        
-            return 0;
+            return RatAttackEvent?.GetInvocationList().Length ?? 0;
         }
     }
+
     public class Rat : IDisposable
     {
         public int Attack = 1;
@@ -80,10 +78,9 @@ namespace Observers
             var rat2 = new Rat(game); // rat2.Attack = 1
             game.OnRatAttackEvent(); // rat 2 not disposed (does not go away)
             var rat3 = new Rat(game); // rat2.Attack is now (++) 1 + 1 = 2
-            game.OnRatAttackEvent(); // rat 3 and rat 2 in pot so both Rat2.Attack and Rat3.Attack
+            game.OnRatAttackEvent(); // rat 3 and rat 2 subscribed so both Rat2.Attack and Rat3.Attack
                                      // = 2 (1 + 1)
-            rat3.Dispose(); // rat 3 goes away but rat 2 remains which means only one rat in pot
-
+            rat3.Dispose(); // rat 3 goes away but rat 2 remains which means only one rat subscribed
             game.OnRatAttackEvent(); // Since only 1 rat (rat 2) remains. Then rat2 attack is reduced
                                      // back to 1.
         }

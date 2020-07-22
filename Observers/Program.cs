@@ -22,7 +22,10 @@ namespace Observers
     //      d) And what are BindingList<T> / ObservableCollection<T>?
 
     // Summary
-    // 1)
+    // 1) Observer is an intrusive approach: an observable must provide an event to subscribe to. 
+    // 2) Special care must be taken to prevent issues in multi-threaded scenarios.
+    // 3) .NET comes with observable collections. (BindingList => WinForms or ObservableCollection => WPF)
+    // 4) IObserve<T> / IObservable<T> are used in stream processing (Reactive Extensions Rx)
 
     public class Program
     {
