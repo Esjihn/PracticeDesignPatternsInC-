@@ -4,8 +4,6 @@ using System.Text;
 
 namespace States
 {
-
-
     public class StateClassicImplementation
     {
         // change to Main to run.
