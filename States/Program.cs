@@ -21,7 +21,13 @@ namespace States
     // 3) Changes in state can be explicit or in response to event (Observer pattern) 
 
     // Summary
-    // 1) 
+    // 1) Given sufficient complexity, it pays to formally define possible status and 
+    //      events/triggers
+    // 2) Can define
+    //      a) State entry/exit behaviors
+    //      b) Action when a particular event causes a transition
+    //      c) Guard conditions enabling/disabling a transition
+    //      d) Default action when no transitions are found for an event.
 
     public class Program
     {

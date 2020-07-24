@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace States
@@ -18,12 +19,20 @@ namespace States
      *      4) If the user enters an incorrect sequence of digits, the lock status changes to ERROR
      */
 
+    public enum Status
+    {
+        Locked,
+        Failed,
+        Unlocked
+    }
+
     public class CombinationLock
     {
+        public int[] Combination { get; }
+
         public CombinationLock(int[] combination)
         {
-            // todo
-
+            Combination = combination;
         }
 
         // you need to be changing this on user input
@@ -31,8 +40,7 @@ namespace States
 
         public void EnterDigit(int digit)
         {
-            // todo
-
+            Status += digit.ToString();
         }
     }
 
@@ -41,9 +49,67 @@ namespace States
         // change to Main to run.
         public static void Main(string[] args)
         {
-            string code = "12345";
+            var cl = new CombinationLock(new []{1,2,3,4,5});
+            var status = Status.Locked;
 
+            while (true)
+            {
+                switch (status)
+                {
+                    case Status.Locked:
+                        var input = (int)Char.GetNumericValue(Console.ReadKey().KeyChar);
+                        cl.EnterDigit(input);
+
+                        if (cl.Status.Length > cl.Combination.Length)
+                        {
+                            cl.Status = string.Empty;
+                            Console.CursorLeft = 0;
+                            Console.Write("Resetting entries\n");
+                            Console.CursorLeft = 0;
+                        }
+
+                        if (cl.Status.Length == cl.Combination.Length)
+                        {
+                            int[] result = new int[cl.Combination.Length];
+                            for (int i = 0; i < cl.Status.Length; i++)
+                            {
+                                var num = (int) Char.GetNumericValue(cl.Status[i]);
+                                result[i] = num;
+                            }
+                            
+                            if (result.SequenceEqual(cl.Combination))
+                            {
+                                status = Status.Unlocked;
+                                break;
+                            }
+                        }
+
+                        var combinationStr =
+                            String.Join(",", cl.Combination.Select(p => p.ToString().ToArray()));
+                       
+                        if (!combinationStr.StartsWith(cl.Status))
+                        {
+                            status = Status.Failed;
+                        }
+
+                        break;
+                    case Status.Failed:
+                        Console.CursorLeft = 0;
+                        Console.WriteLine("ERROR");
+                        //cl.Status = string.Empty;
+                        status = Status.Locked;
+                        break;
+                    case Status.Unlocked:
+                        Console.CursorLeft = 0;
+                        Console.WriteLine("OPEN");
+                        return;
+                    default:
+                        Console.WriteLine("Contact system admin.");
+                        break;
+                }
+            }
 
         }
     }
+
 }
