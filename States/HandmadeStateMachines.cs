@@ -16,7 +16,7 @@ namespace States
         OnHold
     }
 
-    // State transitions that are requires to transition to a particular state.
+    // State transitions that are required to transition to a particular state.
     public enum Trigger
     {
         CallDialed,
