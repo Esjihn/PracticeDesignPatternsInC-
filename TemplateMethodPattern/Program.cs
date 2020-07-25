@@ -22,7 +22,10 @@ namespace TemplateMethodPattern
     //      c) Parent template method invoked.
 
     // Summary
-    // 1) 
+    // 1) Define an algorithm at a high level.
+    // 2) Define constituent parts as abstract methods / properties.
+    // 3) Inherit the algorithm class, providing necessary overrides. 
+
 
     public class Program
     {
