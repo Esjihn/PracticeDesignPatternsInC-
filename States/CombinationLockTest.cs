@@ -47,7 +47,7 @@ namespace States
     public class CombinationLockTest
     {
         // change to Main to run.
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
             var cl = new CombinationLock(new []{1,2,3,4,5});
             var status = Status.Locked;
