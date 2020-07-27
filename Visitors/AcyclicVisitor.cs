@@ -104,7 +104,7 @@ namespace Visitors
     public class AcyclicVisitor
     {
         // change to Main to run.
-        public static void Main()
+        public static void none()
         {
             var e = new AdditionExpression5(
                 left: new DoubleExpression5(1),

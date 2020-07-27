@@ -26,7 +26,11 @@ namespace Visitors
     //      a) but avoid type checks (massive switch statements, error prone and difficult)
 
     // Summary 
-    // 1)
+    // 1) Propagate an accept(Visitor v) method throughout the entire hierarchy.
+    // 2) Create a visitor with Visit(Foo), Visit(Bar) for each element in the hierarchy
+    // 3) Each accept() simply calls visitor.Visit(this) (double dispatch)
+    // 4) Using dynamic (with lots of performance cost), we can invoke right overload based on argument type alone
+    //      (dynamic dispatch).
 
     public class Program
     {
