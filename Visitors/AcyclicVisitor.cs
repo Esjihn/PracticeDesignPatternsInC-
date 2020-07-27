@@ -4,15 +4,28 @@ using System.Text;
 
 namespace Visitors
 {
-    public interface IExpressionVisitor2
+    public interface IVisitor<TVisitable>
     {
-        void Visit(DoubleExpression5 de);
-        void Visit(AdditionExpression5 ae);
+        void Visit(TVisitable obj);
     }
 
+    // Degenerate / Marker interface (used for simply indicating that a method type is a visitor
+    // Can be attached to any type of visitor
+    public interface IVisitor { }
+
+    // 3 -  DoubleExpression
+    // (1 + 2) (1+(2+3)) AdditionExpression
     public abstract class Expression5
     {
-        public abstract void Accept(IExpressionVisitor2 visitor);
+        public virtual void Accept(IVisitor visitor)
+        {
+            // verifies that the type of generic visitor passed in is an Expression type visitor
+            // checking type before dispatching has performance cost. 
+            if (visitor is IVisitor<Expression5> typed)
+            {
+                typed.Visit(this);
+            }
+        }
     }
 
     public class DoubleExpression5 : Expression5
@@ -24,46 +37,61 @@ namespace Visitors
             Value = value;
         }
 
-        public override void Accept(IExpressionVisitor2 visitor)
+        public override void Accept(IVisitor visitor)
         {
-            // double dispatch (expression at run time, since we secure type in interface)
-            visitor.Visit(this);
+            if (visitor is IVisitor<DoubleExpression5> typed)
+            {
+                typed.Visit(this);
+            }
         }
     }
 
     public class AdditionExpression5 : Expression5
     {
-        public Expression5 Left;
-        public Expression5 Right;
+        public Expression5 Left, Right;
 
         public AdditionExpression5(Expression5 left, Expression5 right)
         {
-            Left = left ?? throw new ArgumentNullException(paramName: nameof(left));
-            Right = right ?? throw new ArgumentNullException(paramName: nameof(right));
+            Left = left ?? throw new ArgumentNullException(nameof(left));
+            Right = right ?? throw new ArgumentNullException(nameof(right));
         }
 
-        public override void Accept(IExpressionVisitor2 visitor)
+        public override void Accept(IVisitor visitor)
         {
-            // double dispatch (expression at run time, since we secure type in interface)
-            visitor.Visit(this);
+            if (visitor is IVisitor<AdditionExpression5> typed)
+            {
+                typed.Visit(this);
+            }
         }
     }
 
-    public class ExpressionPrinter5 : IExpressionVisitor2
+    // Visitor
+    public class ExpressionPrinter4 : IVisitor,
+        IVisitor<Expression5>,
+        // still compiles even when specific IVisitors are not implemented.
+        //IVisitor<DoubleExpression5>,
+        IVisitor<AdditionExpression5>
     {
-        StringBuilder sb = new StringBuilder();
+        private StringBuilder sb = new StringBuilder();
 
-        public void Visit(DoubleExpression5 de)
+        public void Visit(Expression5 obj)
         {
-            sb.Append(de.Value);
+            // error handling
+            // non abstract base type
+            // can go here. 
         }
 
-        public void Visit(AdditionExpression5 ae)
+        public void Visit(DoubleExpression5 obj)
+        {
+            sb.Append(obj.Value);
+        }
+
+        public void Visit(AdditionExpression5 obj)
         {
             sb.Append("(");
-            ae.Left.Accept(this);
+            obj.Left.Accept(this);
             sb.Append("+");
-            ae.Right.Accept(this);
+            obj.Right.Accept(this);
             sb.Append(")");
         }
 
@@ -73,38 +101,19 @@ namespace Visitors
         }
     }
 
-    public class ExpressionCalculator2 : IExpressionVisitor2
-    {
-        public double Result;
-
-        public void Visit(DoubleExpression5 de)
-        {
-            Result = de.Value;
-        }
-
-        public void Visit(AdditionExpression5 ae)
-        {
-            ae.Left.Accept(this);
-            var a = Result;
-            ae.Right.Accept(this);
-            var b = Result;
-            Result = a + b;
-        }
-    }
-
     public class AcyclicVisitor
     {
         // change to Main to run.
         public static void Main()
         {
             var e = new AdditionExpression5(
-              left: new DoubleExpression5(1),
-              right: new AdditionExpression5(
-                left: new DoubleExpression5(2),
-                right: new DoubleExpression5(3)));
-            var ep = new ExpressionPrinter5();
+                left: new DoubleExpression5(1),
+                right: new AdditionExpression5(
+                    left: new DoubleExpression5(2),
+                    right: new DoubleExpression5(3)));
+            var ep = new ExpressionPrinter4();
             ep.Visit(e);
-            Console.WriteLine(ep);
+            Console.WriteLine(ep.ToString());
         }
     }
 }
