@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Visitors
 {
+    // Not classic Visitor
     public abstract class Expression
     {
         public abstract void Print(StringBuilder sb);
@@ -47,7 +48,7 @@ namespace Visitors
     public class IntrusiveExpressionPrintingVisitor
     {
         // change to Main to run.
-        public static void Main(string[] args)
+        public static void none(string[] args)
         {
             var e = new AdditionExpression(new DoubleExpression(1), new AdditionExpression(new DoubleExpression(2), new DoubleExpression(3)));
             var sb = new StringBuilder();
