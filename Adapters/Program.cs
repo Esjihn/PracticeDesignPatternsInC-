@@ -6,6 +6,8 @@ namespace Adapters
     // Adapters - A construct which adapts an existing interface X to conform to the
     // required interface Y. 
     // Getting the interface you want from the interface you have.
+
+    // Motivation
     // 1) Emulate real world Electrical devices that have different power
     // (interface) requirements.
     //      b) Voltage(small 5V, large 220V)
