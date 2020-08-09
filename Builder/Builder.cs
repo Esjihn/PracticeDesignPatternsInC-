@@ -52,12 +52,12 @@ namespace Builder
     public class HtmlBuilder
     {
         private readonly string _rootName;
-        HtmlElement root = new HtmlElement();
+        HtmlElement _root = new HtmlElement();
 
         public HtmlBuilder(string rootName)
         {
             _rootName = rootName;
-            root.Name = rootName;
+            _root.Name = rootName;
         }
 
         // To change to fluent builder i.e. StringBuilder.append().append chaining
@@ -65,20 +65,20 @@ namespace Builder
         public HtmlBuilder AddChild(string childName, string childText)
         {
             var e = new HtmlElement(childName, childText);
-            root.Elements.Add(e);
+            _root.Elements.Add(e);
 
             return this;
         }
 
         public override string ToString()
         {
-            return root.ToString();
+            return _root.ToString();
         }
 
         // stateful because it keeps the root.
         public void Clear()
         {
-            root = new HtmlElement{Name = _rootName};
+            _root = new HtmlElement{Name = _rootName};
         }
     }
 
