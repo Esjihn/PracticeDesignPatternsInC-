@@ -149,7 +149,7 @@ namespace Factories
     public class AbstractFactory
     {
         // change to Main to run.
-        public static void none(string[] args)
+        public static void Main(string[] args)
         {
             var machine = new HotDrinkMachine();
             var drink = machine.MakeDrink();

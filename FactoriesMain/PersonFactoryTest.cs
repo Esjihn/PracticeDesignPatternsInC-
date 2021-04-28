@@ -41,7 +41,8 @@ namespace Factories
 
     public class PersonFactoryTest
     {
-        public static void Main(string[] args)
+        // Change to main to run.
+        public static void none(string[] args)
         {
             var c = Person.Factory.CreatePerson("Craig");
             var m = Person.Factory.CreatePerson("Matthew");
