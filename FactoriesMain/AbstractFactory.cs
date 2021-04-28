@@ -44,7 +44,7 @@ namespace Factories
         public IHotDrink Prepare(int amount)
         {
             Console.WriteLine($"Grind some beans, boil water, pour {amount} ml," +
-                              $" add cream and sugar, and enjoy");
+                              " add cream and sugar, and enjoy");
 
             return new Coffee();
         }
